@@ -85,6 +85,18 @@ DD_PORT_SCAN_EXTERNAL_UNIT_EMAIL_LIST={{.DD_PORT_SCAN_EXTERNAL_UNIT_EMAIL_LIST}}
 
 # Port scan source - default is 127.0.0.1
 DD_PORT_SCAN_SOURCE_IP={{.DD_PORT_SCAN_SOURCE_IP}}
+
+
+# Port scan source - default is 127.0.0.1
+DD_PORT_SCAN_SOURCE_IP={{.DD_PORT_SCAN_SOURCE_IP}}
+
+DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLE={{.DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLE}}
+DD_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY={{.DD_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY}}
+DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET={{.DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET}}
+DD_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_EMAILS={{.DD_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_EMAILS}}
+DD_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS={{.DD_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS}}
+
+
 `
 
 type envVals struct {
@@ -110,6 +122,12 @@ type envVals struct {
 	DD_PORT_SCAN_RESULT_EMAIL_FROM        string
 	DD_PORT_SCAN_EXTERNAL_UNIT_EMAIL_LIST string
 	DD_PORT_SCAN_SOURCE_IP                string
+	DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLE   bool
+	DD_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY	  string
+	DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET	  string
+	DD_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS []string
+	DD_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_EMAILS []string
+
 }
 
 func genAndWriteEnv(i *config.DojoConfig, dbURL string) {
@@ -139,28 +157,33 @@ func genAndWriteEnv(i *config.DojoConfig, dbURL string) {
 
 	// Set the values from the configuration file
 	env := envVals{
-		DD_DEBUG:                              i.Settings.Debug,
-		DD_DJANGO_ADMIN_ENABLED:               i.Settings.DjangoAdminEnabled,
-		DD_SECRET_KEY:                         secretKey,
-		DD_CREDENTIAL_AES_256_KEY:             credentialKey,
-		DD_DATABASE_URL:                       dbURL,
-		DD_ALLOWED_HOSTS:                      i.Settings.AllowedHosts,
-		DD_WHITENOISE:                         i.Settings.Whitenoise,
-		DD_TIME_ZONE:                          i.Settings.TimeZone,
-		DD_TRACK_MIGRATIONS:                   i.Settings.TrackMigrations,
-		DD_SESSION_COOKIE_HTTPONLY:            i.Settings.SessionCookieHTTPOnly,
-		DD_CSRF_COOKIE_HTTPONLY:               i.Settings.CSRFCookieHTTPOnly,
-		DD_SECURE_SSL_REDIRECT:                i.Settings.SecureSSLRedirect,
-		DD_CSRF_COOKIE_SECURE:                 i.Settings.CSRFCookieSecure,
-		DD_SECURE_BROWSER_XSS_FILTER:          i.Settings.SecureBrowserXSSFilter,
-		DD_LANG:                               i.Settings.Lang,
-		DD_WKHTMLTOPDF:                        i.Settings.Wkhtmltopdf,
-		DD_TEAM_NAME:                          i.Settings.TeamName,
-		DD_ADMINS:                             i.Settings.Admins,
-		DD_PORT_SCAN_CONTACT_EMAIL:            i.Settings.PortScanContactEmail,
-		DD_PORT_SCAN_RESULT_EMAIL_FROM:        i.Settings.PortScanResultEmailFrom,
-		DD_PORT_SCAN_EXTERNAL_UNIT_EMAIL_LIST: i.Settings.PortScanExternalUnitEmailList,
-		DD_PORT_SCAN_SOURCE_IP:                i.Settings.PortScanSourceIP,
+		DD_DEBUG:                             		 	 i.Settings.Debug,
+		DD_DJANGO_ADMIN_ENABLED:              		 	 i.Settings.DjangoAdminEnabled,
+		DD_SECRET_KEY:                        			 secretKey,
+		DD_CREDENTIAL_AES_256_KEY:            			 credentialKey,
+		DD_DATABASE_URL:                     			 dbURL,
+		DD_ALLOWED_HOSTS:                      			 i.Settings.AllowedHosts,
+		DD_WHITENOISE:                         			 i.Settings.Whitenoise,
+		DD_TIME_ZONE:                          			 i.Settings.TimeZone,
+		DD_TRACK_MIGRATIONS:                   			 i.Settings.TrackMigrations,
+		DD_SESSION_COOKIE_HTTPONLY:            			 i.Settings.SessionCookieHTTPOnly,
+		DD_CSRF_COOKIE_HTTPONLY:               			 i.Settings.CSRFCookieHTTPOnly,
+		DD_SECURE_SSL_REDIRECT:                			 i.Settings.SecureSSLRedirect,
+		DD_CSRF_COOKIE_SECURE:                 			 i.Settings.CSRFCookieSecure,
+		DD_LANG:                               			 i.Settings.Lang,
+		DD_WKHTMLTOPDF:                        			 i.Settings.Wkhtmltopdf,
+		DD_TEAM_NAME:                          			 i.Settings.TeamName,
+		DD_ADMINS:                             			 i.Settings.Admins,
+		DD_PORT_SCAN_CONTACT_EMAIL:            			 i.Settings.PortScanContactEmail,
+		DD_PORT_SCAN_RESULT_EMAIL_FROM:        			 i.Settings.PortScanResultEmailFrom,
+		DD_PORT_SCAN_EXTERNAL_UNIT_EMAIL_LIST:			 i.Settings.PortScanExternalUnitEmailList,
+		DD_PORT_SCAN_SOURCE_IP:            				 i.Settings.PortScanSourceIP,
+		DD_SECURE_BROWSER_XSS_FILTER:        			 i.Settings.SecureBrowserXSSFilter,
+		DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLE:  			 i.Settings.SocialAuthGoogleOauth2Enable,
+		DD_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY: 				 i.Settings.SocialAuthGoogleOauth2Key,
+		DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET: 			 i.Settings.SocialAuthGoogleOauth2Secret,
+		DD_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_EMAILS: i.Settings.SocialAuthGoogleWhistlistEmails,
+		DD_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS: i.Settings.SocialAuthGoogleWhistlistDomains,
 	}
 
 	// Create a template based on the text above

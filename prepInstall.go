@@ -158,6 +158,8 @@ func readEnvVars() {
 		"DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLE":            true,
 		"DD_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY":               true,
 		"DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET":            true,
+		"DD_SOCIAL_AUTH_GOOGLE_WHITELISTED_DOMAINS":	  true,
+		"DD_SOCIAL_AUTH_GOOGLE_WHITELISTED_EMAILS":	  	  true,
 		"DD_SOCIAL_AUTH_OKTA_OAUTH2_API_URL":             true,
 		"DD_SOCIAL_AUTH_OKTA_OAUTH2_ENABLED":             true,
 		"DD_SOCIAL_AUTH_OKTA_OAUTH2_KEY":                 true,
@@ -351,6 +353,10 @@ func readEnvVars() {
 			conf.Settings.SocialAuthGoogleOauth2Key = v
 		case "DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET":
 			conf.Settings.SocialAuthGoogleOauth2Secret = v
+		case "DD_SOCIAL_AUTH_GOOGLE_WHITELISTED_DOMAINS":
+			conf.Settings.SocialAuthGoogleWhistlistDomains = v
+		case "DD_SOCIAL_AUTH_GOOGLE_WHITELISTED_EMAILS":
+			conf.Settings.SocialAuthGoogleWhistlistEmails = v
 		case "DD_SOCIAL_AUTH_OKTA_OAUTH2_API_URL":
 			conf.Settings.SocialAuthOktaOauth2APIURL = v
 		case "DD_SOCIAL_AUTH_OKTA_OAUTH2_ENABLED":

@@ -127,6 +127,8 @@ Settings:
   SocialAuthGoogleOauth2Enable: "" # DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLE - Boolean to enable Google login
   SocialAuthGoogleOauth2Key: "" # DD_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY - Google OAuth2 key
   SocialAuthGoogleOauth2Secret: "" # DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET - Google OAuth2 secret
+  SocialAuthGoogleWhistlistDomains: ""
+  SocialAuthGoogleWhistlistEmails: ""
   SocialAuthOktaOauth2APIURL: "" # DD_SOCIAL_AUTH_OKTA_OAUTH2_API - Okta API for OAuth2
   SocialAuthOktaOauth2Enabled: "" # DD_SOCIAL_AUTH_OKTA_OAUTH2_ENABLED - Boolean to enable Okta login
   SocialAuthOktaOauth2Key: "" # DD_SOCIAL_AUTH_OKTA_OAUTH2_KEY - Okta OAuth2 key
