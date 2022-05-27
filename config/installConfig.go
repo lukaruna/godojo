@@ -136,10 +136,11 @@ type SettingsConfig struct {
 	SocialAuthAzureadTenantOauth2Resource string `yaml:"SocialAuthAzureadTenantOauth2Resource"`
 	SocialAuthAzureadTenantOauth2Secret   string `yaml:"SocialAuthAzureadTenantOauth2Secret"`
 	SocialAuthAzureadTenantOauth2TenantID string `yaml:"SocialAuthAzureadTenantOauth2TenantID"`
-	SocialAuthGoogleOauth2Enable          string `yaml:"SocialAuthGoogleOauth2Enable"`
+	SocialAuthGoogleOauth2Enabled         bool `yaml:"SocialAuthGoogleOauth2Enabled"`
 	SocialAuthGoogleOauth2Key             string `yaml:"SocialAuthGoogleOauth2Key"`
-	SocialAuthGoogleWhistlistDomains      string `yaml:"SocialAuthGoogleOauth2Secret"`
-	SocialAuthGoogleWhistlistEmails       string `yaml:"SocialAuthGoogleOauth2Secret"`
+	SocialAuthGoogleOauth2Secret          string `yaml:"SocialAuthGoogleOauth2Secret"`
+	SocialAuthGoogleWhistlistDomains      string `yaml:"SocialAuthGoogleWhistlistDomains"`
+	SocialAuthGoogleWhistlistEmails       string `yaml:"SocialAuthGoogleWhistlistEmails"`
 	SocialAuthOktaOauth2APIURL            string `yaml:"SocialAuthOktaOauth2APIURL"`
 	SocialAuthOktaOauth2Enabled           string `yaml:"SocialAuthOktaOauth2Enabled"`
 	SocialAuthOktaOauth2Key               string `yaml:"SocialAuthOktaOauth2Key"`

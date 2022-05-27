@@ -155,7 +155,7 @@ func readEnvVars() {
 		"DD_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_RESOURCE":  true,
 		"DD_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET":    true,
 		"DD_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID": true,
-		"DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLE":            true,
+		"DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLED":            true,
 		"DD_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY":               true,
 		"DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET":            true,
 		"DD_SOCIAL_AUTH_GOOGLE_WHITELISTED_DOMAINS":	  true,
@@ -347,8 +347,8 @@ func readEnvVars() {
 			conf.Settings.SocialAuthAzureadTenantOauth2Secret = v
 		case "DD_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID":
 			conf.Settings.SocialAuthAzureadTenantOauth2TenantID = v
-		case "DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLE":
-			conf.Settings.SocialAuthGoogleOauth2Enable = v
+		case "DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLED":
+			conf.Settings.SocialAuthGoogleOauth2Enabled = convBool(v, "DD_SOCIAL_AUTH_GOOGLE_OAUTH2_ENABLED environmental variable was not a boolean.")
 		case "DD_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY":
 			conf.Settings.SocialAuthGoogleOauth2Key = v
 		case "DD_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET":
